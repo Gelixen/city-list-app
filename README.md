@@ -23,13 +23,24 @@ allows the user to do the following:
 ## Bonus points (not mandatory)
 
 * Frontend stack should be one from the list below:
-    * Angular
-    * VueJS
-    * React
+  * Angular
+  * VueJS
+  * React
 * Editing the city should be only allowed for users with Spring Security's role ROLE_ALLOW_EDIT
 
 ## Expected outcome
 
-A repository link to your GitHub account from where you can clone the solution and run it with little-to-zero effort.
+A repository link to your GitHub account from where you can clone the solution and run it with
+little-to-zero effort.
 
 Should you need any further information, please do not hesitate to contact the sender of this task.
+
+---
+
+# TODO:
+
+* Add csv read and load to H2 DB on app start
+* Add cities fetching from DB
+* Add pagination for /cities endpoint
+* Add /cities/search endpoint
+* Add city edit endpoint
