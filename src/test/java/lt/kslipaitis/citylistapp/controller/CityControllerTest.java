@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+import java.util.List;
 import lt.kslipaitis.citylistapp.service.CityService;
 import lt.kslipaitis.model.City;
 import org.junit.jupiter.api.BeforeEach;
@@ -28,11 +29,12 @@ class CityControllerTest {
     @Test
     void getAllCities() {
         City city = CityService.TEMP_CITY;
-        when(cityService.getAllCities()).thenReturn(singletonList(city));
+        List<City> cities = singletonList(city);
+        when(cityService.getAllCities()).thenReturn(cities);
 
-        String actualResult = cityController.getAllCities();
+        List<City> actualResult = cityController.getAllCities();
 
         verify(cityService).getAllCities();
-        assertEquals(city.name(), actualResult);
+        assertEquals(cities, actualResult);
     }
 }

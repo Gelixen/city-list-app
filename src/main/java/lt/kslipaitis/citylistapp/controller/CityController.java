@@ -1,6 +1,8 @@
 package lt.kslipaitis.citylistapp.controller;
 
+import java.util.List;
 import lt.kslipaitis.citylistapp.service.CityService;
+import lt.kslipaitis.model.City;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -14,7 +16,7 @@ public class CityController {
     }
 
     @GetMapping("/cities")
-    public String getAllCities() {
-        return cityService.getAllCities().get(0).name();
+    public List<City> getAllCities() {
+        return cityService.getAllCities();
     }
 }
