@@ -15,6 +15,6 @@ public class CityController {
 
     @GetMapping("/cities")
     public String getAllCities() {
-        return cityService.getAllCities();
+        return cityService.getAllCities().get(0).name();
     }
 }

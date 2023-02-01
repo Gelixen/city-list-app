@@ -1,10 +1,12 @@
 package lt.kslipaitis.citylistapp.controller;
 
+import static java.util.Collections.singletonList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import lt.kslipaitis.citylistapp.service.CityService;
+import lt.kslipaitis.model.City;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -25,12 +27,12 @@ class CityControllerTest {
 
     @Test
     void getAllCities() {
-        String serviceResponse = "test cities";
-        when(cityService.getAllCities()).thenReturn(serviceResponse);
+        City city = CityService.TEMP_CITY;
+        when(cityService.getAllCities()).thenReturn(singletonList(city));
 
         String actualResult = cityController.getAllCities();
 
         verify(cityService).getAllCities();
-        assertEquals(serviceResponse, actualResult);
+        assertEquals(city.name(), actualResult);
     }
 }

@@ -4,6 +4,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import lt.kslipaitis.citylistapp.service.CityService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -21,6 +22,6 @@ class CityControllerIT {
     void getAllCities() throws Exception {
         mvc.perform(get("/cities"))
             .andExpect(status().isOk())
-            .andExpect(content().string("cities"));
+            .andExpect(content().string(CityService.TEMP_CITY.name()));
     }
 }
